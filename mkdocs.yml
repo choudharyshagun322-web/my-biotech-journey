@@ -1,6 +1,7 @@
 site_name: Bioinformatics Journey
 
 nav:
+  - 'Stage 0: The Command Line': '0_linux_basics/README.md'
   - 'Stage 1: Foundations':
     - 'Introduction': 'index.md'
     - 'Genomics Basics': '1_genomics_basics/README.md'
