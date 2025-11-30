@@ -1,0 +1,12 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# MkDocs
+site/
+
+# R
+.Rhistory
+.RData
+.Rproj.user

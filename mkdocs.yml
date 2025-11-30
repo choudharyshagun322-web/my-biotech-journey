@@ -1,0 +1,25 @@
+site_name: Bioinformatics Journey
+
+nav:
+  - 'Home': 'index.md'
+  - 'Core Tools': 'stage2/README.md'
+  - 'LEfSe': 'stage3/README.md'
+  - 'Genomics & Transcriptomics': 'stage4/README.md'
+  - 'Lab Tools': 'stage5/README.md'
+  - 'Projects': 'stage6/README.md'
+  - 'Cloud & Containers': 'stage7/README.md'
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
