@@ -1,0 +1,1254 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../2_data_formats/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Genomics Basics - Bioinformatics Journey</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-genomics-basics-the-information-system-of-life" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bioinformatics Journey" class="md-header__button md-logo" aria-label="Bioinformatics Journey" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bioinformatics Journey
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Genomics Basics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bioinformatics Journey" class="md-nav__button md-logo" aria-label="Bioinformatics Journey" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bioinformatics Journey
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0_linux_basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stage 0: The Command Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stage 1: Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stage 1: Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genomics Basics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genomics Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dna-rna-and-protein-the-core-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNA, RNA, and Protein: The Core Data Structures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-central-dogma-the-core-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Central Dogma: The Core Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutations-bugs-in-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mutations: "Bugs" in the Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ngs-high-throughput-data-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NGS: High-Throughput Data Generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-biological-data-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Biological Data Formats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Biological Data Formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FASTA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FASTQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sambam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SAM/BAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vcf-variant-call-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VCF (Variant Call Format)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microbiome-basics-for-qiime2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microbiome Basics for QIIME2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Recommended Learning Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Recommended Learning Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-core-biology-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Core Biology Concepts:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-bioinformatics-specific-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Bioinformatics-Specific Theory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-data-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Data Formats:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_data_formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_microbiome_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microbiome Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stage2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stage 2: Core Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stage3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stage 3: LEfSe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stage4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stage 4: Genomics & Transcriptomics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stage5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stage 5: Lab Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stage6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stage 6: Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stage7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stage 7: Cloud & Containers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Daily Blogging
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Daily Blogging
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/2025-11-30-day-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1: My First Post
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dna-rna-and-protein-the-core-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNA, RNA, and Protein: The Core Data Structures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-central-dogma-the-core-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Central Dogma: The Core Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutations-bugs-in-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mutations: "Bugs" in the Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ngs-high-throughput-data-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NGS: High-Throughput Data Generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-biological-data-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Biological Data Formats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Biological Data Formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FASTA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FASTQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sambam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SAM/BAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vcf-variant-call-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VCF (Variant Call Format)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microbiome-basics-for-qiime2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microbiome Basics for QIIME2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Recommended Learning Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Recommended Learning Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-core-biology-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Core Biology Concepts:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-bioinformatics-specific-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Bioinformatics-Specific Theory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-data-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Data Formats:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-genomics-basics-the-information-system-of-life">1. Genomics Basics: The Information System of Life</h1>
+<p>Think of molecular biology as a computer system with its own data, storage, and processing rules.</p>
+<h2 id="dna-rna-and-protein-the-core-data-structures">DNA, RNA, and Protein: The Core Data Structures</h2>
+<ul>
+<li>
+<p><strong>DNA (Deoxyribonucleic Acid):</strong> This is the hard drive. It's a massive, double-stranded string of characters (<code>A</code>, <code>T</code>, <code>C</code>, <code>G</code>). It stores the permanent blueprint for everything in an organism.</p>
+<ul>
+<li><strong>Data Structure:</strong> A very long character array/string.</li>
+</ul>
+</li>
+<li>
+<p><strong>RNA (Ribonucleic Acid):</strong> This is like RAM or a message queue. It's a temporary, single-stranded copy of a small segment of DNA (a gene). Its main character set is (<code>A</code>, <code>U</code>, <code>C</code>, <code>G</code>).</p>
+<ul>
+<li><strong>Data Structure:</strong> A shorter, temporary character array/string.</li>
+</ul>
+</li>
+<li>
+<p><strong>Protein:</strong> This is the application or executable. It's a sequence of amino acids (20 different characters) that folds into a 3D shape to <em>do something</em>—like catalyze a reaction or form a structural component.</p>
+<ul>
+<li><strong>Data Structure:</strong> A character array that maps to a complex 3D object.</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-central-dogma-the-core-algorithm">The Central Dogma: The Core Algorithm</h2>
+<p>This is the fundamental data flow in the cell:</p>
+<p><strong>DNA → (Transcription) → RNA → (Translation) → Protein</strong></p>
+<ol>
+<li><strong>Transcription:</strong> A process "reads" a gene from the DNA hard drive and creates a temporary RNA copy. It's like loading a program into memory.</li>
+<li><strong>Translation:</strong> A ribosome "executes" the RNA message, reading it in 3-character chunks (codons) and assembling the corresponding protein.</li>
+</ol>
+<h2 id="mutations-bugs-in-the-code">Mutations: "Bugs" in the Code</h2>
+<p>A mutation is a change in the DNA sequence. This can be:
+*   <strong>A single character change (SNP):</strong> <code>A</code> becomes <code>G</code>.
+*   <strong>A deletion:</strong> A character is removed.
+*   <strong>An insertion:</strong> A new character is added.</p>
+<p>These "bugs" can be harmless, or they can alter the final protein, causing disease. <strong>Variant calling</strong> is the process of finding these differences between a sample's DNA and a reference standard.</p>
+<h2 id="ngs-high-throughput-data-generation">NGS: High-Throughput Data Generation</h2>
+<ul>
+<li><strong>Next-Generation Sequencing (NGS):</strong> This isn't one thing, but a collection of technologies that allow us to read DNA/RNA sequences at massive scale (gigabytes to terabytes of data per run).<ul>
+<li><strong>Illumina:</strong> The most common. It produces billions of short, highly accurate string reads (e.g., 150 characters long).</li>
+<li><strong>Nanopore:</strong> A newer technology. It produces much longer reads (thousands of characters) but with a higher error rate. This is a classic trade-off: data volume/length vs. data accuracy.</li>
+</ul>
+</li>
+</ul>
+<h2 id="common-biological-data-formats">Common Biological Data Formats</h2>
+<p>Bioinformatics uses standardized text-based formats to store sequence data. Here are the most important ones to recognize.</p>
+<h3 id="fasta">FASTA</h3>
+<p>A simple format for storing one or more sequences.
+*   <code>&gt;</code> followed by a description line.
+*   The raw sequence on the following lines.</p>
+<pre><code>&gt;sequence_1 description of my sequence
+AGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATC
+GATCGATCGATCGATCGATCGATC
+&gt;sequence_2 another sequence
+AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCT
+</code></pre>
+<h3 id="fastq">FASTQ</h3>
+<p>The standard format for raw NGS reads. It's a FASTA file with added quality scores.
+*   <code>@</code>: Sequence identifier.
+*   Line 2: The raw sequence read.
+*   <code>+</code>: A separator.
+*   Line 4: The quality score for each base in the sequence (ASCII encoded).</p>
+<pre><code>@SEQ_ID_1
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
++
+!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF&gt;&gt;&gt;&gt;&gt;&gt;CCCCCCC65
+</code></pre>
+<h3 id="sambam">SAM/BAM</h3>
+<p>The format for storing alignment data after mapping NGS reads to a reference genome.
+*   <strong>SAM</strong> is human-readable text.
+*   <strong>BAM</strong> is the compressed, binary version.
+*   It's a complex, tab-delimited format with a header section (<code>@HD</code>, <code>@SQ</code>) and an alignment section.</p>
+<p><strong>Example SAM line:</strong></p>
+<pre><code>read_1  99  chr1  713939  60  100M  =  714222  383  AGCT...  *
+</code></pre>
+<h3 id="vcf-variant-call-format">VCF (Variant Call Format)</h3>
+<p>The format for storing genetic variations (SNPs, indels).
+*   It has a meta-information header (<code>##</code>).
+*   A header line (<code>#CHROM</code>).
+*   Tab-delimited rows for each variant.</p>
+<p><strong>Example VCF line:</strong></p>
+<pre><code>#CHROM  POS     ID      REF  ALT  QUAL  FILTER  INFO
+chr1    100341  .       T    C    50    PASS    .
+</code></pre>
+<h2 id="microbiome-basics-for-qiime2">Microbiome Basics for QIIME2</h2>
+<ul>
+<li><strong>What is a microbiome?</strong> A community of microorganisms (bacteria, fungi, viruses) living in a particular environment (e.g., human gut, soil).</li>
+<li><strong>How do we study it?</strong> We can't easily culture most microbes. Instead, we sequence a specific "marker gene" that acts as a barcode for different species.</li>
+<li><strong>16S rRNA Gene:</strong> This is the most common marker gene for bacteria. It has regions that are the same for all bacteria, and variable regions that are different between species. By sequencing this gene, we can identify "who is there" in a sample. QIIME2 is a powerful pipeline for analyzing this type of data.</li>
+</ul>
+<hr />
+<h2 id="recommended-learning-resources">📌 <strong>Recommended Learning Resources</strong></h2>
+<h3 id="for-core-biology-concepts"><strong>For Core Biology Concepts:</strong></h3>
+<ul>
+<li><strong>Khan Academy Biology:</strong> Excellent for foundational concepts of DNA, genes, and the central dogma. <a href="https://www.khanacademy.org/science/biology">Visit here</a></li>
+<li><strong>NCBI Bookshelf:</strong> A free online collection of biomedical books. "The Cell: A Molecular Approach" is a great reference. <a href="https://www.ncbi.nlm.nih.gov/books/">Visit here</a></li>
+</ul>
+<h3 id="for-bioinformatics-specific-theory"><strong>For Bioinformatics-Specific Theory:</strong></h3>
+<ul>
+<li><strong>Coursera - Bioinformatics for Beginners:</strong> A good, structured overview. <a href="https://www.coursera.org/learn/bioinformatics-methods-1">Visit here</a></li>
+<li><strong>YouTube - Omics Explained:</strong> Short, clear videos on complex topics like NGS and different 'omics fields. <a href="https://www.youtube.com/c/OmicsExplained">Visit channel</a></li>
+<li><strong>YouTube - The Bioinformatics Coach:</strong> Practical tutorials and career advice. <a href="https://www.youtube.com/c/TheBioinformaticsCoach">Visit channel</a></li>
+</ul>
+<h3 id="for-data-formats"><strong>For Data Formats:</strong></h3>
+<ul>
+<li><strong>FASTQ/FASTA:</strong> <a href="https://www.drive5.com/usearch/manual/fasta_files.html">A quick visual guide</a></li>
+<li><strong>SAM/BAM:</strong> <a href="http://samtools.github.io/hts-specs/SAMv1.pdf">SAM format specification</a> (technical but definitive)</li>
+<li><strong>VCF:</strong> <a href="https://samtools.github.io/hts-specs/VCFv4.2.pdf">VCF format specification</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
