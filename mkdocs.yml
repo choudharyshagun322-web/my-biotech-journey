@@ -13,6 +13,8 @@ nav:
   - 'Stage 5: Lab Tools': 'stage5/README.md'
   - 'Stage 6: Projects': 'stage6/README.md'
   - 'Stage 7: Cloud & Containers': 'stage7/README.md'
+  - 'Daily Blogging':
+    - 'Day 1: My First Post': 'blog/2025-11-30-day-1.md'
 
 theme:
   name: material
